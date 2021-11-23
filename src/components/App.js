@@ -11,7 +11,7 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 function ShowDownloadableLink(props) {
     const linkGenerated = props.linkGenerated;
     function handleCopy() {
-        navigator.clipboard.writeText("http://localhost/u/"+linkGenerated)
+        navigator.clipboard.writeText("http://localhost/"+linkGenerated)
         toast.success(`Copié dans le presse papier !`)
     }
     return (
@@ -23,7 +23,7 @@ function ShowDownloadableLink(props) {
                     <div className="col-md-12">
                         <h4><FontAwesomeIcon icon={faCheckCircle} /> Partagez votre fichier !</h4>
                         <div className="col-md-12">
-                            <FontAwesomeIcon icon={faDownload} />&nbsp;&nbsp;&nbsp;<a href={"http://localhost/u/"+linkGenerated}>{linkGenerated}</a><button className="btn" onClick={handleCopy}><FontAwesomeIcon icon={faCopy} /></button>
+                            <FontAwesomeIcon icon={faDownload} />&nbsp;&nbsp;&nbsp;<a href={"http://localhost/"+linkGenerated}>{linkGenerated}</a><button className="btn" onClick={handleCopy}><FontAwesomeIcon icon={faCopy} /></button>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@ class DragDropZone extends React.Component {
 
         this.state = { 
             selectedFile: null,
-			newLinkGenerated: null,
+	    newLinkGenerated: null,
             isLoading: false
         };
     }
@@ -68,7 +68,9 @@ class DragDropZone extends React.Component {
             isLoading: true,
             loaded: 0,
         })
-        
+        /*
+	TODO : Limiter la taille des transferts max
+	*/
         console.log(event.target.files[0]);
     }
 
